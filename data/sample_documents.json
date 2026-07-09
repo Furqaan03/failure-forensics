@@ -1,0 +1,24 @@
+{
+  "documents": [
+    {
+      "id": "clean-invoice",
+      "text": "INVOICE #4471. Bill to: Acme Corp. Date: 2026-03-14. Line items: Widget A x10 @ $5.00 = $50.00; Widget B x2 @ $12.50 = $25.00. Subtotal: $75.00. Tax (8%): $6.00. Total due: $81.00. Payment terms: Net 30.",
+      "failure_mode": "none"
+    },
+    {
+      "id": "contract-no-dates",
+      "text": "SERVICE AGREEMENT between Party A (the Provider) and Party B (the Client). The Provider agrees to deliver consulting services. Either party may terminate with written notice. Fees are billed monthly.",
+      "failure_mode": "missing_dates — extraction may hallucinate an effective date that isn't present"
+    },
+    {
+      "id": "mixed-currency-invoice",
+      "text": "Invoice. Item 1: 100 EUR. Item 2: 50 USD. Item 3: 3000 JPY. Total: unclear — amounts in three currencies with no conversion given.",
+      "failure_mode": "currency_ambiguity — summarization may report a nonsensical combined total"
+    },
+    {
+      "id": "ambiguous-report-or-correspondence",
+      "text": "Hi team, attached is the Q1 performance overview. Revenue grew 12%. Regards, Sam. [The body reads like a report but is framed as an email.]",
+      "failure_mode": "classification_ambiguity — could be report or correspondence"
+    }
+  ]
+}
